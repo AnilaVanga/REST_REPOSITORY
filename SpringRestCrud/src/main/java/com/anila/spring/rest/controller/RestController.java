@@ -26,8 +26,7 @@ public class RestController {
 	static final Logger logger = Logger.getLogger(RestController.class);
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody
-	Status addEmployee(@RequestBody Employee employee) {
+	public @ResponseBody Status addEmployee(@RequestBody Employee employee) {
 		try {
 			dataServices.addEntity(employee);
 			return new Status(1, "Employee added Successfully !");
@@ -39,8 +38,7 @@ public class RestController {
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public @ResponseBody
-	Employee getEmployee(@PathVariable("id") long id) {
+	public @ResponseBody Employee getEmployee(@PathVariable("id") long id) {
 		Employee employee = null;
 		try {
 			employee = dataServices.getEntityById(id);
@@ -52,8 +50,7 @@ public class RestController {
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public @ResponseBody
-	List<Employee> getEmployee() {
+	public @ResponseBody List<Employee> getEmployee() {
 
 		List<Employee> employeeList = null;
 		try {
@@ -67,8 +64,7 @@ public class RestController {
 	}
 
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-	public @ResponseBody
-	Status deleteEmployee(@PathVariable("id") long id) {
+	public @ResponseBody Status deleteEmployee(@PathVariable("id") long id) {
 
 		try {
 			dataServices.deleteEntity(id);
